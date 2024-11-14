@@ -47,6 +47,12 @@ export const App = () => {
     }
   }, [all]);
 
+   useEffect(() => {
+    const interval = setInterval(newQuote, 4000); // Change every 5 seconds
+
+    return () => clearInterval(interval);  // Clean up interval on unmount
+  }, [all]);
+
   return (
     <>
       <div className="flex justify-center items-center h-screen"
